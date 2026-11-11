@@ -87,10 +87,12 @@ function smoothWindow(p: number, start: number, end: number): number {
 function RecipeCakeAssembly({
   scrollProgressRef,
   fixedProgress,
+  dragYawRef,
   onReady,
 }: {
   scrollProgressRef?: MutableRefObject<number>;
   fixedProgress?: number;
+  dragYawRef?: MutableRefObject<number>;
   onReady: () => void;
 }) {
   const gltf = useGLTF(RECIPE_GLB_PATH, true);
@@ -164,7 +166,8 @@ function RecipeCakeAssembly({
 
     if (!prefersReduced) {
       idleSpinRef.current += delta * 0.14;
-      const targetRotY = idleSpinRef.current + p * Math.PI * 2.2;
+      const targetRotY =
+        idleSpinRef.current + p * Math.PI * 2.2 + (dragYawRef?.current ?? 0);
       group.rotation.y = THREE.MathUtils.lerp(group.rotation.y, targetRotY, 0.1);
     }
 
@@ -228,6 +231,7 @@ function RecipeCakeAssembly({
 export interface RecipeCakeCanvasProps {
   scrollProgressRef?: MutableRefObject<number>;
   fixedProgress?: number;
+  interactive?: boolean;
   enableZoom?: boolean;
   activeStepIdx: number;
   stepTitle: string;
@@ -236,6 +240,7 @@ export interface RecipeCakeCanvasProps {
 export function RecipeCakeCanvas({
   scrollProgressRef,
   fixedProgress,
+  interactive = false,
   enableZoom = false,
   activeStepIdx,
   stepTitle,
@@ -245,6 +250,8 @@ export function RecipeCakeCanvas({
   const [loaded, setLoaded] = useState(false);
   const [useProceduralFallback, setUseProceduralFallback] = useState(() => recipeGlbFailed);
   const [webglCrashed, setWebglCrashed] = useState(false);
+  const dragYawRef = useRef(0);
+  const swipeStartRef = useRef<{ x: number; y: number; locked?: 'x' | 'y' } | null>(null);
 
   const handleReady = useCallback(() => setLoaded(true), []);
   const handleGlbError = useCallback(() => {
@@ -271,6 +278,35 @@ export function RecipeCakeCanvas({
   return (
     <div
       ref={ref}
+      onPointerDown={(e) => {
+        if (!interactive) swipeStartRef.current = { x: e.clientX, y: e.clientY };
+      }}
+      onPointerMove={(e) => {
+        if (interactive || !swipeStartRef.current) return;
+        const dx = e.clientX - swipeStartRef.current.x;
+        const dy = e.clientY - swipeStartRef.current.y;
+        if (!swipeStartRef.current.locked) {
+          if (Math.hypot(dx, dy) < 5) return;
+          swipeStartRef.current.locked = Math.abs(dx) > Math.abs(dy) * 1.15 ? 'x' : 'y';
+        }
+        if (swipeStartRef.current.locked === 'y') {
+          swipeStartRef.current = null;
+          return;
+        }
+        dragYawRef.current += dx * 0.011;
+        swipeStartRef.current.x = e.clientX;
+        swipeStartRef.current.y = e.clientY;
+      }}
+      onPointerUp={() => {
+        swipeStartRef.current = null;
+      }}
+      onPointerCancel={() => {
+        swipeStartRef.current = null;
+      }}
+      onPointerLeave={() => {
+        swipeStartRef.current = null;
+      }}
+      style={{ touchAction: interactive ? 'none' : 'pan-y' }}
       className="relative h-full w-full select-none overflow-hidden"
       aria-label={`Interactive 3D cake recipe stage: ${stepTitle}`}
     >
@@ -290,6 +326,11 @@ export function RecipeCakeCanvas({
           <Canvas
             shadows="soft"
             dpr={[1, 1.75]}
+            style={
+              interactive
+                ? { touchAction: 'none' }
+                : { pointerEvents: 'none', touchAction: 'pan-y' }
+            }
             gl={{
               antialias: true,
               alpha: true,
@@ -324,6 +365,7 @@ export function RecipeCakeCanvas({
               <ProceduralRecipeCake3D
                 scrollProgressRef={scrollProgressRef}
                 fixedProgress={fixedProgress}
+                dragYawRef={dragYawRef}
                 onReady={handleReady}
               />
             ) : (
@@ -332,6 +374,7 @@ export function RecipeCakeCanvas({
                   <RecipeCakeAssembly
                     scrollProgressRef={scrollProgressRef}
                     fixedProgress={fixedProgress}
+                    dragYawRef={dragYawRef}
                     onReady={handleReady}
                   />
                 </Suspense>
@@ -347,18 +390,20 @@ export function RecipeCakeCanvas({
               color="#080403"
             />
 
-            <OrbitControls
-              makeDefault
-              enablePan={false}
-              enableZoom={enableZoom}
-              enableDamping
-              dampingFactor={0.07}
-              minDistance={1.9}
-              maxDistance={4.8}
-              minPolarAngle={Math.PI * 0.18}
-              maxPolarAngle={Math.PI * 0.52}
-              target={[0, -0.05, 0]}
-            />
+            {interactive && (
+              <OrbitControls
+                makeDefault
+                enablePan={false}
+                enableZoom={enableZoom}
+                enableDamping
+                dampingFactor={0.07}
+                minDistance={1.9}
+                maxDistance={4.8}
+                minPolarAngle={Math.PI * 0.18}
+                maxPolarAngle={Math.PI * 0.52}
+                target={[0, -0.05, 0]}
+              />
+            )}
           </Canvas>
         </RecipeErrorBoundary>
       ) : null}

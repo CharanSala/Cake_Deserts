@@ -50,6 +50,7 @@ function SculpturalDessertNode({
   const rowRef = useRef<HTMLElement>(null);
   const watermarkRef = useRef<HTMLSpanElement>(null);
   const itemScrollRef = useRef(0);
+  const tapStartRef = useRef<{ x: number; y: number } | null>(null);
   const prefersReduced = useReducedMotion();
 
   const isRightSide = index % 2 === 1;
@@ -141,7 +142,23 @@ function SculpturalDessertNode({
 
         {/* Unique Architectural Silhouette Cloche */}
         <div
-          className={`group relative z-10 w-full overflow-hidden border border-gold/30 bg-[radial-gradient(circle_at_50%_42%,#271712_0%,#140C09_68%,#0D0806_100%)] shadow-[0_26px_65px_rgba(0,0,0,0.65)] transition-all duration-500 hover:border-gold/70 ${shapeClass}`}
+          onPointerDown={(e) => {
+            tapStartRef.current = { x: e.clientX, y: e.clientY };
+          }}
+          onPointerUp={(e) => {
+            if (!tapStartRef.current) return;
+            const dist = Math.hypot(
+              e.clientX - tapStartRef.current.x,
+              e.clientY - tapStartRef.current.y,
+            );
+            tapStartRef.current = null;
+            if (dist < 8) onSelectDessert(dessert);
+          }}
+          onPointerCancel={() => {
+            tapStartRef.current = null;
+          }}
+          style={{ touchAction: 'pan-y' }}
+          className={`group relative z-10 w-full cursor-pointer overflow-hidden border border-gold/30 bg-[radial-gradient(circle_at_50%_42%,#271712_0%,#140C09_68%,#0D0806_100%)] shadow-[0_26px_65px_rgba(0,0,0,0.65)] transition-all duration-500 hover:border-gold/70 ${shapeClass}`}
         >
           {/* Delicate Inner Framing Halo */}
           <div
@@ -151,7 +168,7 @@ function SculpturalDessertNode({
 
           <DessertModelCanvas
             dessert={dessert}
-            interactive
+            interactive={false}
             enableZoom={false}
             autoRotate
             rotateSpeed={0.2}
@@ -164,7 +181,7 @@ function SculpturalDessertNode({
           {/* Subtle Interactive Hint Chip */}
           <div className="pointer-events-none absolute bottom-3.5 left-1/2 z-20 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-gold/25 bg-[#0E0807]/85 px-3 py-1 text-[9px] uppercase tracking-editorial text-gold/90 backdrop-blur-sm">
             <Rotate3d className="h-3 w-3" />
-            <span>360° Drag</span>
+            <span>Tap for 360°</span>
           </div>
         </div>
       </div>

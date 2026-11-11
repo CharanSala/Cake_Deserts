@@ -544,6 +544,7 @@ export function ProceduralDessert3D({
   scaleMultiplier,
   scrollProgressRef,
   scrollSpinTurns,
+  dragYawRef,
   onReady,
 }: {
   slug: string;
@@ -553,6 +554,7 @@ export function ProceduralDessert3D({
   scaleMultiplier: number;
   scrollProgressRef?: MutableRefObject<number>;
   scrollSpinTurns: number;
+  dragYawRef?: MutableRefObject<number>;
   onReady: () => void;
 }) {
   const mats = usePatisserieMaterials();
@@ -576,7 +578,8 @@ export function ProceduralDessert3D({
     const scrollAngle = scrollProgressRef
       ? scrollProgressRef.current * Math.PI * 2 * scrollSpinTurns
       : 0;
-    const targetRotY = idleAngleRef.current + scrollAngle;
+    const targetRotY =
+      idleAngleRef.current + scrollAngle + (dragYawRef?.current ?? 0);
     group.rotation.y = THREE.MathUtils.lerp(group.rotation.y, targetRotY, 0.12);
 
     if (scrollProgressRef) {
@@ -651,11 +654,13 @@ export function ProceduralRecipeCake3D({
   scrollProgressRef,
   fixedProgress,
   disableSelfRotation = false,
+  dragYawRef,
   onReady,
 }: {
   scrollProgressRef?: MutableRefObject<number>;
   fixedProgress?: number;
   disableSelfRotation?: boolean;
+  dragYawRef?: MutableRefObject<number>;
   onReady: () => void;
 }) {
   const mats = usePatisserieMaterials();
@@ -704,7 +709,8 @@ export function ProceduralRecipeCake3D({
 
     if (!disableSelfRotation && rootRef.current && !prefersReduced) {
       idleSpinRef.current += delta * 0.16;
-      const targetRot = idleSpinRef.current + p * Math.PI * 2.2;
+      const targetRot =
+        idleSpinRef.current + p * Math.PI * 2.2 + (dragYawRef?.current ?? 0);
       rootRef.current.rotation.y = THREE.MathUtils.lerp(rootRef.current.rotation.y, targetRot, 0.1);
     }
 

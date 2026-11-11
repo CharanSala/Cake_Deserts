@@ -103,6 +103,7 @@ interface LoadedModelProps {
   scaleMultiplier: number;
   scrollProgressRef?: MutableRefObject<number>;
   scrollSpinTurns: number;
+  dragYawRef?: MutableRefObject<number>;
   onReady: () => void;
 }
 
@@ -114,6 +115,7 @@ function LoadedDessertModel({
   scaleMultiplier,
   scrollProgressRef,
   scrollSpinTurns,
+  dragYawRef,
   onReady,
 }: LoadedModelProps) {
   const gltf = useGLTF(modelPath, true);
@@ -166,7 +168,8 @@ function LoadedDessertModel({
     const scrollAngle = scrollProgressRef
       ? scrollProgressRef.current * Math.PI * 2 * scrollSpinTurns
       : 0;
-    const targetRotY = idleAngleRef.current + scrollAngle;
+    const targetRotY =
+      idleAngleRef.current + scrollAngle + (dragYawRef?.current ?? 0);
     group.rotation.y = THREE.MathUtils.lerp(group.rotation.y, targetRotY, 0.12);
 
     if (scrollProgressRef) {
@@ -278,6 +281,8 @@ export function DessertModelCanvas({
   const [webglCrashed, setWebglCrashed] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const controlsRef = useRef<ComponentRef<typeof OrbitControls>>(null);
+  const dragYawRef = useRef(0);
+  const swipeStartRef = useRef<{ x: number; y: number; locked?: 'x' | 'y' } | null>(null);
 
   const handleModelReady = useCallback(() => {
     setModelLoaded(true);
@@ -287,6 +292,7 @@ export function DessertModelCanvas({
     setModelLoaded(false);
     setUseProceduralFallback(failedGlbPaths.has(dessert.modelPath));
     setWebglCrashed(false);
+    dragYawRef.current = 0;
   }, [dessert.modelPath]);
 
   const shouldMountCanvas = webglSupported && (eager || isVisible) && !webglCrashed;
@@ -306,6 +312,35 @@ export function DessertModelCanvas({
   return (
     <div
       ref={ref}
+      onPointerDown={(e) => {
+        if (!interactive) swipeStartRef.current = { x: e.clientX, y: e.clientY };
+      }}
+      onPointerMove={(e) => {
+        if (interactive || !swipeStartRef.current) return;
+        const dx = e.clientX - swipeStartRef.current.x;
+        const dy = e.clientY - swipeStartRef.current.y;
+        if (!swipeStartRef.current.locked) {
+          if (Math.hypot(dx, dy) < 5) return;
+          swipeStartRef.current.locked = Math.abs(dx) > Math.abs(dy) * 1.15 ? 'x' : 'y';
+        }
+        if (swipeStartRef.current.locked === 'y') {
+          swipeStartRef.current = null;
+          return;
+        }
+        dragYawRef.current += dx * 0.011;
+        swipeStartRef.current.x = e.clientX;
+        swipeStartRef.current.y = e.clientY;
+      }}
+      onPointerUp={() => {
+        swipeStartRef.current = null;
+      }}
+      onPointerCancel={() => {
+        swipeStartRef.current = null;
+      }}
+      onPointerLeave={() => {
+        swipeStartRef.current = null;
+      }}
+      style={{ touchAction: interactive ? 'none' : 'pan-y' }}
       className={`relative h-full w-full select-none overflow-hidden ${className}`}
       aria-label={`Interactive 3D view of ${dessert.name}`}
     >
@@ -334,6 +369,11 @@ export function DessertModelCanvas({
           <Canvas
             shadows="soft"
             dpr={[1, 1.75]}
+            style={
+              interactive
+                ? { touchAction: 'none' }
+                : { pointerEvents: 'none', touchAction: 'pan-y' }
+            }
             gl={{
               antialias: true,
               alpha: true,
@@ -414,6 +454,7 @@ export function DessertModelCanvas({
                 scaleMultiplier={scaleMultiplier}
                 scrollProgressRef={scrollProgressRef}
                 scrollSpinTurns={scrollSpinTurns}
+                dragYawRef={dragYawRef}
                 onReady={handleModelReady}
               />
             ) : (
@@ -433,6 +474,7 @@ export function DessertModelCanvas({
                     scaleMultiplier={scaleMultiplier}
                     scrollProgressRef={scrollProgressRef}
                     scrollSpinTurns={scrollSpinTurns}
+                    dragYawRef={dragYawRef}
                     onReady={handleModelReady}
                   />
                 </Suspense>
