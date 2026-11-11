@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FFFDF8" />
+  <circle cx="200" cy="205" r="136" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.35" />
+  <ellipse cx="200" cy="316" rx="72" ry="12" fill="#38251F" fill-opacity="0.12" />
+  <!-- Fluted liner -->
+  <path d="M138 228H262L244 306C242 312 234 316 200 316C166 316 158 312 156 306L138 228Z" fill="#C6A46C" fill-opacity="0.28" stroke="#754B3A" stroke-width="1.8" />
+  <path d="M158 228L168 313M179 228L184 315M200 228V316M221 228L216 315M242 228L232 313" stroke="#754B3A" stroke-opacity="0.45" stroke-width="1.2" />
+  <!-- Sponge dome -->
+  <path d="M136 228C136 202 164 188 200 188C236 188 264 202 264 228H136Z" fill="#754B3A" />
+  <!-- Swirled buttercream -->
+  <path d="M132 214C132 184 162 168 200 168C238 168 268 184 268 214C268 226 248 232 200 232C152 232 132 226 132 214Z" fill="#F8F3EB" stroke="#38251F" stroke-opacity="0.25" stroke-width="1.5" />
+  <path d="M148 180C148 154 172 138 200 138C228 138 252 154 252 180C252 192 232 198 200 198C168 198 148 192 148 180Z" fill="#FFFDF8" stroke="#DFAE9B" stroke-width="1.5" />
+  <path d="M166 146C168 122 186 102 204 88C210 106 232 120 234 146C234 158 218 164 200 164C182 164 166 158 166 146Z" fill="#DFAE9B" fill-opacity="0.55" stroke="#754B3A" stroke-opacity="0.35" stroke-width="1.4" />
+  <!-- Sprinkles & gold pearls -->
+  <circle cx="176" cy="178" r="3" fill="#C6A46C" />
+  <circle cx="222" cy="176" r="3" fill="#DFAE9B" />
+  <circle cx="198" cy="150" r="3.2" fill="#C6A46C" />
+  <rect x="158" y="202" width="10" height="3" rx="1.5" transform="rotate(-24 158 202)" fill="#C6A46C" />
+  <rect x="228" y="198" width="10" height="3" rx="1.5" transform="rotate(20 228 198)" fill="#754B3A" />
+  <rect x="190" y="206" width="10" height="3" rx="1.5" transform="rotate(-8 190 206)" fill="#DFAE9B" />
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#38251F" />
+  <rect x="5" y="5" width="54" height="54" rx="10" stroke="#C6A46C" stroke-opacity="0.45" stroke-width="1" />
+  <path d="M22 19L32 13L42 19" stroke="#C6A46C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+  <text
+    x="32"
+    y="42"
+    text-anchor="middle"
+    fill="#F8F3EB"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="27"
+    font-weight="500"
+    letter-spacing="1"
+  >É</text>
+</svg>

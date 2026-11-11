@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FFFDF8" />
+  <circle cx="200" cy="200" r="136" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.35" />
+  <ellipse cx="200" cy="310" rx="64" ry="12" fill="#38251F" fill-opacity="0.14" />
+  <!-- Glass layers -->
+  <path d="M138 144H262L244 294C242 302 224 308 200 308C176 308 158 302 156 294L138 144Z" fill="#FFFDF8" fill-opacity="0.75" stroke="#38251F" stroke-opacity="0.45" stroke-width="2" />
+  <!-- Dark mousse base -->
+  <path d="M150 224H250L242 290C240 296 222 302 200 302C178 302 160 296 158 290L150 224Z" fill="#38251F" />
+  <!-- Milk chocolate mousse middle -->
+  <path d="M144 184H256L250 224H150L144 184Z" fill="#754B3A" />
+  <!-- Rose chantilly & chocolate curl -->
+  <path d="M142 184C144 166 168 156 200 156C232 156 256 166 258 184H142Z" fill="#DFAE9B" fill-opacity="0.8" />
+  <path d="M174 156C182 132 218 132 226 156" fill="#FFFDF8" stroke="#C6A46C" stroke-width="1.6" />
+  <path d="M192 122C206 112 226 124 218 140C212 150 194 146 196 134" stroke="#38251F" stroke-width="4" stroke-linecap="round" />
+  <line x1="154" y1="154" x2="164" y2="278" stroke="#FFFDF8" stroke-opacity="0.75" stroke-width="3" stroke-linecap="round" />
+</svg>

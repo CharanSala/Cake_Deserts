@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FFFDF8" />
+  <circle cx="200" cy="200" r="136" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.35" />
+  <ellipse cx="200" cy="296" rx="94" ry="14" fill="#38251F" fill-opacity="0.14" />
+  <!-- Layered French Mille-Feuille / Opera Pastry -->
+  <rect x="114" y="248" width="172" height="24" rx="4" fill="#C6A46C" fill-opacity="0.6" stroke="#754B3A" stroke-width="1.4" />
+  <path d="M118 232C132 222 146 240 160 230C174 220 188 240 202 230C216 220 230 240 244 230C258 220 272 240 284 232V248H116L118 232Z" fill="#FFFDF8" stroke="#DFAE9B" stroke-width="1.5" />
+  <rect x="114" y="204" width="172" height="22" rx="4" fill="#C6A46C" fill-opacity="0.6" stroke="#754B3A" stroke-width="1.4" />
+  <path d="M118 188C132 178 146 196 160 186C174 176 188 196 202 186C216 176 230 196 244 186C258 176 272 196 284 188V204H116L118 188Z" fill="#DFAE9B" fill-opacity="0.7" stroke="#754B3A" stroke-opacity="0.3" stroke-width="1.5" />
+  <rect x="114" y="160" width="172" height="20" rx="4" fill="#38251F" />
+  <!-- Delicate cream crown & gold leaf -->
+  <path d="M172 160C176 134 190 120 200 112C210 120 224 134 228 160H172Z" fill="#FFFDF8" stroke="#C6A46C" stroke-width="1.5" />
+  <polygon points="196,104 206,96 212,110 198,116" fill="#C6A46C" />
+</svg>

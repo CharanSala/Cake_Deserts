@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FFFDF8" />
+  <circle cx="200" cy="200" r="136" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.35" />
+  <ellipse cx="200" cy="282" rx="100" ry="14" fill="#38251F" fill-opacity="0.12" />
+  <!-- Roll body in perspective -->
+  <path d="M180 144H272C296 144 308 176 308 206C308 238 294 268 268 268H176L180 144Z" fill="#754B3A" />
+  <ellipse cx="178" cy="206" rx="54" ry="62" fill="#C6A46C" fill-opacity="0.35" stroke="#754B3A" stroke-width="2" />
+  <!-- Cream spiral -->
+  <path d="M178 206C178 194 190 190 196 198C204 210 194 228 176 228C152 228 144 202 156 180C170 156 206 156 220 182C232 206 218 244 184 250C148 256 128 224 134 188" stroke="#FFFDF8" stroke-width="11" stroke-linecap="round" />
+  <path d="M178 206C178 194 190 190 196 198C204 210 194 228 176 228C152 228 144 202 156 180C170 156 206 156 220 182" stroke="#DFAE9B" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="210" y1="158" x2="294" y2="158" stroke="#38251F" stroke-opacity="0.35" stroke-width="2" />
+</svg>

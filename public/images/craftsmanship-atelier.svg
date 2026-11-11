@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" fill="none">
+  <rect width="600" height="440" rx="20" fill="#FFFDF8" />
+  <rect x="20" y="20" width="560" height="400" rx="14" stroke="#C6A46C" stroke-opacity="0.4" stroke-width="1.2" />
+  <!-- Architectural patisserie tools illustration -->
+  <circle cx="300" cy="210" r="128" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.45" />
+  <!-- Piping bag silhouette -->
+  <path d="M210 132L292 260L310 248L248 112L210 132Z" fill="#DFAE9B" fill-opacity="0.55" stroke="#754B3A" stroke-width="1.6" />
+  <path d="M292 260L308 274L310 248" fill="#C6A46C" />
+  <!-- Whisk arcs -->
+  <line x1="364" y1="116" x2="316" y2="212" stroke="#38251F" stroke-width="4" stroke-linecap="round" />
+  <ellipse cx="304" cy="240" rx="24" ry="42" transform="rotate(26 304 240)" stroke="#754B3A" stroke-width="1.5" />
+  <ellipse cx="304" cy="240" rx="12" ry="42" transform="rotate(26 304 240)" stroke="#754B3A" stroke-width="1.2" />
+  <!-- Cocoa beans & vanilla pod -->
+  <ellipse cx="212" cy="288" rx="18" ry="10" transform="rotate(-20 212 288)" fill="#38251F" />
+  <ellipse cx="242" cy="300" rx="14" ry="8" transform="rotate(15 242 300)" fill="#754B3A" />
+  <path d="M350 286C378 274 398 282 414 294" stroke="#38251F" stroke-width="3" stroke-linecap="round" />
+</svg>

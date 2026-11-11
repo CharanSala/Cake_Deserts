@@ -1,0 +1,15 @@
+# Dependencies & build output
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor & OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# Blender backups
+assets/blender/*.blend1
+assets/blender/*.blend2

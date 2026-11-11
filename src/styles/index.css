@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #0b0706;
+    color: #f8f3eb;
+    font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: clip;
+    background-color: #0b0706;
+    color: #f8f3eb;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-editorial {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .editorial-hairline {
+    border-color: rgba(198, 164, 108, 0.32);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .atelier-grain {
+    background-image: radial-gradient(rgba(248, 243, 235, 0.045) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .animate-orbit-slow {
+    animation: orbitSlow 54s linear infinite;
+  }
+}
+
+@keyframes orbitSlow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Custom subtle dark editorial scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0706;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(198, 164, 108, 0.32);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(198, 164, 108, 0.62);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-orbit-slow {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

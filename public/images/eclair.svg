@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FFFDF8" />
+  <circle cx="200" cy="200" r="136" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.35" />
+  <ellipse cx="200" cy="264" rx="116" ry="16" fill="#38251F" fill-opacity="0.14" />
+  <!-- Choux body -->
+  <rect x="88" y="180" width="224" height="68" rx="34" fill="#C6A46C" stroke="#754B3A" stroke-width="1.8" />
+  <!-- Cream center stripe visible -->
+  <path d="M98 212H302" stroke="#FFFDF8" stroke-width="9" stroke-linecap="round" />
+  <!-- Glossy chocolate fondant glaze -->
+  <path d="M92 204C92 184 114 176 200 176C286 176 308 184 308 204C294 210 272 204 252 210C230 216 212 204 192 210C170 216 146 204 124 210C110 214 98 208 92 204Z" fill="#38251F" />
+  <!-- Gloss specular & gold leaf accents -->
+  <path d="M126 186C166 182 234 182 272 186" stroke="#FFFDF8" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round" />
+  <path d="M140 192L162 184M196 194L218 184M250 192L268 184" stroke="#C6A46C" stroke-width="1.8" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#38251F" />
+  <circle cx="200" cy="200" r="136" fill="#473028" stroke="#C6A46C" stroke-opacity="0.45" />
+  <ellipse cx="200" cy="292" rx="100" ry="14" fill="#1E130F" fill-opacity="0.5" />
+  <!-- Layered tiramisu block -->
+  <rect x="110" y="236" width="180" height="24" rx="4" fill="#754B3A" />
+  <rect x="110" y="212" width="180" height="24" rx="4" fill="#FFFDF8" />
+  <rect x="110" y="188" width="180" height="24" rx="4" fill="#5D3A2D" />
+  <rect x="110" y="164" width="180" height="24" rx="4" fill="#F8F3EB" />
+  <!-- Piped mascarpone clouds -->
+  <circle cx="138" cy="156" r="18" fill="#FFFDF8" />
+  <circle cx="170" cy="154" r="20" fill="#FFFDF8" />
+  <circle cx="202" cy="152" r="21" fill="#FFFDF8" />
+  <circle cx="234" cy="154" r="20" fill="#FFFDF8" />
+  <circle cx="264" cy="156" r="18" fill="#FFFDF8" />
+  <!-- Cocoa veil dusting -->
+  <path d="M122 148C144 138 176 136 200 136C224 136 256 138 278 148" stroke="#754B3A" stroke-width="7" stroke-linecap="round" />
+  <circle cx="154" cy="128" r="2" fill="#C6A46C" />
+  <circle cx="204" cy="122" r="2.5" fill="#C6A46C" />
+  <circle cx="246" cy="128" r="2" fill="#C6A46C" />
+</svg>

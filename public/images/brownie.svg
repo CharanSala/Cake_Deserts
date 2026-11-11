@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FFFDF8" />
+  <circle cx="200" cy="200" r="136" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.35" />
+  <ellipse cx="200" cy="296" rx="92" ry="14" fill="#38251F" fill-opacity="0.14" />
+  <!-- Layered stacked brownies -->
+  <path d="M106 218L212 184L296 226L190 264L106 218Z" fill="#38251F" />
+  <path d="M106 218V266L190 308V264L106 218Z" fill="#4A2F26" />
+  <path d="M190 264V308L296 270V226L190 264Z" fill="#754B3A" />
+  <!-- Crinkle crust top -->
+  <path d="M114 216L212 186L288 224L190 258L114 216Z" fill="#5D3A2D" stroke="#C6A46C" stroke-opacity="0.4" stroke-width="1" />
+  <path d="M148 214L196 208L218 224M188 198L238 220M162 232L214 240" stroke="#38251F" stroke-width="1.6" stroke-linecap="round" />
+  <!-- Chocolate chunks -->
+  <path d="M168 196L188 190L198 202L178 210L168 196Z" fill="#2A1914" />
+  <path d="M214 212L236 206L244 218L222 226L214 212Z" fill="#2A1914" />
+  <circle cx="204" cy="182" r="4" fill="#C6A46C" />
+</svg>

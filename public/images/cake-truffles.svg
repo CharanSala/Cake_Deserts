@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FFFDF8" />
+  <circle cx="200" cy="200" r="136" fill="#F8F3EB" stroke="#C6A46C" stroke-opacity="0.35" />
+  <ellipse cx="200" cy="288" rx="108" ry="18" fill="#38251F" fill-opacity="0.1" />
+  <!-- Trio of luxury truffles -->
+  <circle cx="142" cy="242" r="38" fill="#754B3A" />
+  <circle cx="258" cy="244" r="36" fill="#DFAE9B" stroke="#754B3A" stroke-opacity="0.3" stroke-width="1.4" />
+  <circle cx="200" cy="208" r="44" fill="#38251F" />
+  <!-- Cocoa dust, hazelnut crunch, gold leaf -->
+  <path d="M174 190C188 184 212 184 226 192" stroke="#C6A46C" stroke-width="2.4" stroke-linecap="round" />
+  <polygon points="196,174 206,170 212,180 200,184" fill="#C6A46C" />
+  <circle cx="130" cy="228" r="3" fill="#38251F" />
+  <circle cx="144" cy="222" r="2.5" fill="#C6A46C" />
+  <circle cx="156" cy="232" r="3" fill="#38251F" />
+  <path d="M232 236C246 226 270 226 284 236" stroke="#754B3A" stroke-width="2" stroke-linecap="round" />
+</svg>

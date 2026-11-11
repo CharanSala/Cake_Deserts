@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#F8F3EB" />
+  <rect x="36" y="36" width="1128" height="558" stroke="#C6A46C" stroke-opacity="0.45" stroke-width="1.5" />
+  <circle cx="880" cy="315" r="190" fill="#FFFDF8" stroke="#C6A46C" stroke-opacity="0.5" stroke-width="1" />
+  <path d="M800 375H960L940 445H820L800 375Z" fill="#754B3A" />
+  <path d="M792 372C792 332 830 308 880 308C930 308 968 332 968 372H792Z" fill="#DFAE9B" />
+  <path d="M824 316C835 270 865 245 882 228C894 265 928 282 938 318" fill="#FFFDF8" stroke="#C6A46C" stroke-width="2" />
+  <text x="110" y="210" fill="#754B3A" font-family="Georgia, serif" font-size="18" letter-spacing="8">MAISON DE PÂTISSERIE</text>
+  <text x="110" y="305" fill="#38251F" font-family="Georgia, serif" font-size="92" letter-spacing="6">ÉCLAT</text>
+  <text x="110" y="365" fill="#754B3A" font-family="Georgia, serif" font-style="italic" font-size="34">The Art of Desserts</text>
+  <line x1="110" y1="410" x2="360" y2="410" stroke="#C6A46C" stroke-width="1.5" />
+  <text x="110" y="458" fill="#38251F" fill-opacity="0.75" font-family="sans-serif" font-size="20">Handcrafted with passion. Designed to delight.</text>
+</svg>
